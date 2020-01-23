@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const showWind=document.querySelector(".wind-value");
     const inputValue= document.querySelector(".wrapper__input");
     const locationName=document.querySelector(".wrapper__location");
+    const locationImg=document.querySelector(".wrapper__location-img");
     const searchBtn = document.querySelector(".button");
     searchBtn.addEventListener("click", function (e) {
         e.preventDefault;
@@ -31,7 +32,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 inputValue.value="";
                 temperature = res.main.temp;
                 wind=res.wind.speed;
-                locationName.innerText=`Location: ${res.name}`;
+                locationImg.src= `http://openweathermap.org/img/wn/${res.weather[0].icon}@2x.png`;
+                locationName.innerText=`Location: ${res.name}, ${res.sys.country}`;
                 showTemperature.innerText=`Temperature: ${temperature}°C`;
                 showWind.innerText=`Wind: ${wind} m/s`;
 
